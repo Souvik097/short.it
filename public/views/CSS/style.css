@@ -1,0 +1,419 @@
+@import url('https://fonts.googleapis.com/css2?family=Arvo&family=Inter&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+}
+
+.body {
+    background: #8a2be2;
+}
+
+.container {
+    height: 100%;
+}
+
+.navbar {
+    height: 10%;
+    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Arvo', serif;
+    color: #f1f1f1;
+    padding-top: 15px;
+}
+
+.navbar-inner h1 {
+    user-select: none;
+}
+
+h1 {
+    font-size: 64px;
+    user-select: none;
+}
+
+.column {
+    float: left;
+    width: 50%;
+    padding: 0;
+    perspective: 5000px;
+}
+
+.row {
+    margin: 0;
+    height: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.5s;
+    transform-style: preserve-3d;
+    transform-origin: center right;
+}
+
+.card.is-flipped {
+    transform: translateX(-100%) rotateY(180deg);
+}
+
+.card-face {
+    padding: 16px;
+    text-align: center;
+    background-color: #f1f1f1;
+    padding: 5%;
+    margin: 5%;
+    min-width: 30vw;
+    min-height: 50vh;
+    justify-content: space-between;
+    align-items: center;
+    display: block;
+    position: absolute;
+    border-radius: 12px;
+    backface-visibility: hidden;
+}
+
+.card-face-back {
+    transform: rotateY(180deg);
+}
+
+.light-mode {
+    backdrop-filter: blur(12px) saturate(180%);
+    -webkit-backdrop-filter: blur(12px) saturate(180%);
+    background-color: rgba(255, 255, 255, 0.65);
+    border: 1px solid rgba(209, 213, 219, 0.3);
+    box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.2);
+    color: #131414;
+}
+
+.dark-mode {
+    backdrop-filter: blur(12px) saturate(180%);
+    -webkit-backdrop-filter: blur(12px) saturate(180%);
+    background-color: rgba(17, 25, 40, 0.6);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.125);
+    box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.2);
+    color: #f1f1f1;
+}
+
+.card-txt {
+    float: left;
+    font-size: 32px;
+    font-weight: 600;
+    margin: 2.5% auto auto 2%;
+}
+
+.Url-output-label {
+    margin-top: 9%;
+}
+
+.input {
+    height: 50px;
+    background-color: #ffffff;
+    margin: 4% 20% auto 2%;
+    background-position: center left 10px;
+    background-repeat: no-repeat;
+    font-family: 'Poppins', sans-serif;
+}
+
+.longURL {
+    width: 80%;
+    box-sizing: border-box;
+    border: 2px solid #cccccc;
+    border-radius: 5px;
+    font-size: 16px;
+    background-image: url('/Iconset/url-link.svg');
+    padding: 12px 20px 12px 40px;
+    outline: none;
+    float: left;
+}
+
+.Url-output {
+    display: flex;
+    align-items: center;
+    margin-top: 225px;
+    width: 100%;
+    justify-content: space-between;
+    position: relative;
+}
+
+.shortURL {
+    width: 73%;
+    align-items: center;
+    padding-left: 40px;
+    position: absolute;
+    color: black;
+    font-weight: 550;
+    cursor: text;
+    border-radius: 6px;
+    background-image: url('/Iconset/redirect.svg');
+    background-size: 25px;
+    vertical-align: middle;
+}
+
+.shortURL-txt {
+    font-size: 100%;
+    font-family: 'Poppins', sans-serif;
+    font-weight: lighter;
+    color: #4d4c4c10
+}
+
+.function-btn {
+    text-align: center;
+    color: #f1f1f1;
+    background-color: #a31aff;
+    border: 0.5px solid #902bf0;
+    box-shadow: inset 5px 5px 5px rgba(0, 0, 0, 0.25);
+    height: 50px;
+    width: 40%;
+    border-radius: 6px;
+    font-size: 20px;
+    cursor: pointer;
+    outline: none;
+    font-family: 'Inter', sans-serif;
+    margin-top: 5%;
+    user-select: none;
+}
+
+.function-btn:hover {
+    background-color: #7a00cc;
+}
+
+.function-btn:active {
+    background-color: #6b00b3;
+}
+
+.qrURL {
+    width: 80%;
+    box-sizing: border-box;
+    border: 2px solid #cccccc;
+    border-radius: 5px;
+    font-size: 16px;
+    background-image: url('/Iconset/qr-code.svg');
+    background-size: 22px;
+    padding: 12px 20px 12px 40px;
+    outline: none;
+    float: left;
+}
+
+.Qr-output {
+    display: flex;
+    margin-top: 150px;
+    position: relative;
+    width: 100%;
+    visibility: hidden;
+}
+
+#QrCode {
+    margin-left: 29.5%;
+    margin-right: auto;
+    float: left;
+    width: 50%;
+    justify-content: center;
+}
+
+.copy-btn {
+    background-color: #8a2be2;
+    color: #f1f1f1;
+    background-image: url('/Iconset/copy.svg');
+    background-size: 40px;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: 0.5px solid #902bf0;
+    border-radius: 30px;
+    box-shadow: inset 5px 5px 5px rgba(0, 0, 0, 0.25);
+    width: 50px;
+    height: 50px;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+.copy-btn:hover {
+    background-color: #7900c9;
+}
+
+.copy-btn:active {
+    background-color: #6900af;
+    background-image: url('/Iconset/copyFill.svg');
+}
+
+.url-copy-btn {
+    float: left; 
+    margin-top: 20px;
+    margin: 4% 5px 0 91%;    
+    position: relative;
+}
+
+.qr-copy-btn {
+    margin-top: 120%;
+    padding-left: 20px;
+    text-align: center;
+}
+
+.copy-btn2:hover {
+    background-color: #7900c9;
+}
+
+.copy-btn2:active {
+    background-color: #6900af;
+    background-image: url('/Iconset/copyFill.svg');
+}
+
+.copy-btn-col {
+    width: 20%;
+    margin-left: 15%;
+}
+
+.toggle-btn {
+    display: flex;
+}
+
+.toggle-btn-img {
+    width: 30px;
+    height: 30px;
+    padding-top: 10px;
+}
+
+.light-shade {
+    visibility: hidden;
+    position: fixed;
+}
+
+.dark-shade {
+    visibility: visible;
+}
+
+.left-img {
+    padding-left: 8px;
+}
+
+.right-img {
+    padding-left: 20px;
+}
+
+.feature-toggle-btn {
+    float: left;
+    margin-left: 10px;
+    padding-bottom: 5px;
+}
+
+.feature-toggle-label {
+    width: 100px;
+    height: 50px;
+    position: relative;
+    display: block;
+    backdrop-filter: blur(12px) saturate(180%);
+    -webkit-backdrop-filter: blur(12px) saturate(180%);
+    background-color: rgba(255, 255, 255, 0.65);
+    border-radius: 30px;
+    border: 1px solid rgba(209, 213, 219, 0.3);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.feature-toggle-label:after {
+    content: "";
+    width: 45px;
+    height: 45px;
+    position: absolute;
+    top: 2px;
+    left: 1px;
+    background-color: transparent;
+    border-radius: 50%;
+    border: 1px solid rgba(72, 72, 72, 0.4);
+    box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.15);
+    transition: 0.2s;
+}
+
+.feature-toggle {
+    width: 0;
+    height: 0;
+    visibility: hidden;
+    float: right;
+    position: relative;
+}
+
+.feature-toggle:checked+.feature-toggle-label {
+    backdrop-filter: blur(12px) saturate(180%);
+    -webkit-backdrop-filter: blur(12px) saturate(180%);
+    /* background-color: rgba(17, 25, 40, 0.6); */
+}
+
+.feature-toggle:checked+.feature-toggle-label::after {
+    left: 98.5px;
+    transform: translateX(-100%);
+    background-color: transparent;
+}
+
+.mode-toggle-btn {
+    float: right;
+    margin-right: 10px;
+    padding-bottom: 5px;
+}
+
+.mode-toggle-label {
+    width: 100px;
+    height: 50px;
+    position: relative;
+    display: block;
+    backdrop-filter: blur(12px) saturate(180%);
+    -webkit-backdrop-filter: blur(12px) saturate(180%);
+    background-color: rgba(255, 255, 255, 0.65);
+    border-radius: 30px;
+    border: 1px solid rgba(209, 213, 219, 0.3);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.mode-toggle-label:after {
+    content: "";
+    width: 45px;
+    height: 45px;
+    position: absolute;
+    top: 2px;
+    left: 1px;
+    background-color: transparent;
+    border-radius: 50%;
+    border: 1px solid rgba(72, 72, 72, 0.4);
+    box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.15);
+    transition: 0.2s;
+}
+
+.mode-toggle {
+    width: 0;
+    height: 0;
+    visibility: hidden;
+    float: right;
+    position: relative;
+}
+
+.mode-toggle:checked+.mode-toggle-label {
+    backdrop-filter: blur(12px) saturate(180%);
+    -webkit-backdrop-filter: blur(12px) saturate(180%);
+    background-color: rgba(17, 25, 40, 0.6);
+}
+
+.mode-toggle:checked+.mode-toggle-label::after {
+    left: 98.5px;
+    transform: translateX(-100%);
+    background-color: transparent;
+}

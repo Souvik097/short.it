@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="shortcut icon" type="image/x-icon" href="/link.png"> -->
+    <title>URL Shortener - Short URLs & Generate QR Codes | ShortIt</title>
+    <!-- <link rel="icon" type="image/x-icon" href="/link.png"> -->
+    <link rel="stylesheet" href="/CSS/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+</head>
+
+<body class="body">
+    <div class="container">
+        <section class="navbar" id="navbar">
+            <div class="navbar-inner">
+                <h1>short.It</h1>
+            </div>
+        </section>
+        <section class="row">
+            <div class="column">
+                <div class="card" id="card">
+                    <div class="card-face card-face-front light-mode">
+                        <h3 class="card-txt">Enter a long URL</h3>
+                        <input type="text" class="longURL input" id="longURL"
+                            placeholder="Example: https://super-long-link.com/shorten-it" required>
+                        <h3 class="card-txt Url-output-label">Here's your shortened URL</h3>
+                        <div class="Url-output">
+                            <input type="text" class="shortURL shortURL-txt input" id="shortURL"
+                                placeholder="Example: https://short.it/example" disabled>
+                            <button type="button" class="copy-btn url-copy-btn" onclick="copyURL()"></button>
+                        </div>
+                        <button type="submit" class="function-btn" onclick="getShortURL()">Get Shortened URL</button>
+                    </div>
+                    <div class="card-face card-face-back light-mode">
+                        <h3 class="card-txt">Enter a URL</h3>
+                        <input type="text" class="qrURL input" id="qrURL"
+                            placeholder="Example: https://example-link.com/" required>
+                        <div class="Qr-output" id="Qr-output">
+                            <div id="QrCode">
+                            </div>
+                            <div class="copy-btn-col">
+                                <button type="button" class="copy-btn qr-copy-btn" onclick="copyQR()"></button>
+                            </div>
+                        </div>
+                        <button type="submit" class="function-btn" onclick="generateQR()">Generate QR</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class=".toggle-btn">
+            <div class="feature-toggle-btn">
+                <input type="checkbox" class="feature-toggle" id="feature-toggle">
+                <label for="feature-toggle" class="feature-toggle-label">
+                    <img src="/Iconset/url-link.svg" class="toggle-btn-img dark-shade left-img">
+                    <img src="/Iconset/qr-code.svg" class="toggle-btn-img dark-shade right-img">
+                </label>
+            </div>
+            <div class="mode-toggle-btn">
+                <input type="checkbox" class="mode-toggle" id="mode-toggle">
+                <label for="mode-toggle" class="mode-toggle-label">
+                    <img src="/Iconset/sun-light.svg" class="toggle-btn-img sun-light light-shade left-img">
+                    <img src="/Iconset/sun-dark.svg" class="toggle-btn-img sun-dark dark-shade left-img">
+                    <img src="/Iconset/moon-light.svg" class="toggle-btn-img moon-light light-shade right-img">
+                    <img src="/Iconset/moon-dark.svg" class="toggle-btn-img moon-dark dark-shade right-img">
+                </label>
+            </div>
+        </div>
+    </div>
+    <script src="JS/scripts.js"></script>
+</body>
+
+</html>
